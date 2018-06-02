@@ -38,9 +38,9 @@
           </optgroup>
           <optgroup label="白山ろく地域">
             <option value="19">河内</option>
-            <option value="20">吉野谷</option>
-            <option value="21">鳥越</option>
-            <option value="22">中宮・仏師ヶ野・尾口</option>
+            <option value="20">吉野谷（中宮除く）</option>
+            <option value="21">鳥越（仏師ヶ野除く）</option>
+            <option value="22">中宮・仏師ヶ野・尾口（深瀬除く） </option>
             <option value="23">深瀬・白峰</option>
           </optgroup>
         </select>
@@ -70,7 +70,7 @@ export default {
     }, 1000)
   },
   created: function () {
-    axios.get('/static/api/07')
+    axios.get('/static/api/07.json')
       .then(response => {
         this.garbage = response.data
       })
@@ -85,7 +85,7 @@ export default {
     changeRegion: function (event) {
       this.region = event.target.value
 
-      axios.get('/static/api/' + this.region)
+      axios.get('/static/api/' + this.region + '.json')
         .then(response => {
           this.garbage = response.data
         })

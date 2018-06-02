@@ -5,17 +5,17 @@ import datetime
 import calendar
 
 def checkArg(args):
-    if len(args) != 5:
-        print('usage: regionname year in_filename out_filename')
+    if len(args) != 4:
+        print('usage: year in_filename out_filename')
         sys.exit()
 
-    print('処理するファイル>>> ' + args[3])
+    print('処理するファイル>>> ' + args[2])
 
-    if not os.path.exists(args[3]):
+    if not os.path.exists(args[2]):
         print('ファイルを指定してください')
         sys.exit()
 
-    if os.path.isdir(args[3]):
+    if os.path.isdir(args[2]):
         print('ファイルを指定してください（ディレクトリです）')
         sys.exit()
 
@@ -23,19 +23,19 @@ def checkArg(args):
 
 args = sys.argv
 checkArg(args)
-year = int(args[2])
+year = int(args[1])
 
 ##### ファイル読み込み
 
 # 大きいファイルじゃないので全部読む
 lines = []
-with open(args[3], 'rt', encoding='utf-8') as fin:
+with open(args[2], 'rt', encoding='utf-8') as fin:
     lines = fin.readlines()
 
 # 3行目までは同じ書式なので読み込む
 # rstripは行の終わりに改行が入るのでそれを取り除くため
 gomilist = []
-for i in range(3):
+for i in range(2):
     gomilist.append(list(map(lambda x: int(x), lines[i].rstrip().split('\t'))))
 
 # 4行目は曜日2つ
@@ -99,13 +99,12 @@ garbagelist.insert(0, {
     'garbageDateList': burnlist
     });
 gomi = {
-        'regionName': args[1],
         'garbageList': garbagelist
        }
 
-print('出力するファイル>>> ' + args[4])
+print('出力するファイル>>> ' + args[3])
 
 gomi_json = json.dumps(gomi, ensure_ascii=False, indent=2)
-with open(args[4], 'wt') as fout:
+with open(args[3], 'wt') as fout:
     fout.write(gomi_json)
 
