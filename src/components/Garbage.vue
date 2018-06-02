@@ -6,37 +6,41 @@
       </svg>
     </div>
     <div class="region" v-cloak>
-      <div>一木地区</div>
-      <div>
-        <button class="change-region-button">地区を変える</button>
-      </div>
+      <select name="region">
+        <optgroup label="松任地区">
+          <option selected>一木地区</option>
+          <option selected>一木地区</option>
+          <option selected>一木地区</option>
+          <option selected>一木地区</option>
+        </optgroup>
+      </select>
     </div>
     <GarbageList :now-date="nowDate" :garbage-list="garbage.garbageList"></GarbageList>
   </main>
 </template>
 
 <script>
-import common from './common'
-import GarbageList from './GarbageList'
+  import common from './common'
+  import GarbageList from './GarbageList'
 
-export default {
-  name: 'Garbage',
-  components: {
-    GarbageList
-  },
-  data: function () {
-    return {}
-  },
-  props: {
-    nowDate: String,
-    garbage: Object
-  },
-  computed: {
-    viewDate: function () {
-      return common.getViewDate(this.nowDate)
+  export default {
+    name: 'Garbage',
+    components: {
+      GarbageList
+    },
+    data: function () {
+      return {}
+    },
+    props: {
+      nowDate: String,
+      garbage: Object
+    },
+    computed: {
+      viewDate: function () {
+        return common.getViewDate(this.nowDate)
+      }
     }
   }
-}
 </script>
 
 <style>
@@ -48,32 +52,16 @@ export default {
 
   .region {
     align-items: center;
-    display: flex;
-    flex-direction: row;
     font-size: 14pt;
-    padding: 10px 5px 5px 20px;
+    padding: 10px 20px;
   }
 
-  .region > div:nth-child(1) {
-    flex: 1;
-  }
-
-  .region > div:nth-child(2) {
-    white-space: nowrap;
-  }
-
-  .change-region-button {
-    background-color: #409eff;
-    border: 1px solid #409eff;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 12pt;
-    outline: none;
-    padding: 3px;
-  }
-
-  .change-region-button:hover, .change-region-button:active {
-    background-color: #3a8ee6;
-    border: 1px solid #3a8ee6;
+  select {
+    appearance: none;
+    background: url(/static/image/arrow.png) 99% 50% no-repeat, linear-gradient(to bottom, #fff 0%, #efebe1 100%);
+    background-size: 20px, 100%;
+    border: 1px solid #999;
+    padding: 10px;
+    width: 100%;
   }
 </style>
