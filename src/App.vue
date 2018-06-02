@@ -11,7 +11,7 @@
         </svg>
       </div>
       <div class="region" v-cloak>
-        <select name="region" @change="changeRegion">
+        <select v-model="selectedRegion" name="region" @change="changeRegion">
           <optgroup label="松任地域">
             <option value="01">松任Ａ</option>
             <option value="02">松任Ｂ・旭</option>
@@ -40,7 +40,7 @@
             <option value="19">河内</option>
             <option value="20">吉野谷（中宮除く）</option>
             <option value="21">鳥越（仏師ヶ野除く）</option>
-            <option value="22">中宮・仏師ヶ野・尾口（深瀬除く） </option>
+            <option value="22">中宮・仏師ヶ野・尾口（深瀬除く）</option>
             <option value="23">深瀬・白峰</option>
           </optgroup>
         </select>
@@ -52,46 +52,50 @@
 </template>
 
 <script>
-import common from './components/common'
-import axios from 'axios'
-import Garbage from './components/Garbage'
-import Footer from './components/Footer'
+  import common from './components/common'
+  import axios from 'axios'
+  import Garbage from './components/Garbage'
+  import Footer from './components/Footer'
 
-export default {
-  name: 'App',
-  components: {
-    Garbage,
-    Footer
-  },
-  mounted: function () {
-    const self = this
-    setInterval(() => {
-      self.nowDate = common.getCurrentDate()
-    }, 1000)
-  },
-  created: function () {
-    axios.get('/static/api/07.json')
-      .then(response => {
-        this.garbage = response.data
-      })
-  },
-  data: function () {
-    return {
-      nowDate: '',
-      garbage: {}
-    }
-  },
-  methods: {
-    changeRegion: function (event) {
-      this.region = event.target.value
-
-      axios.get('/static/api/' + this.region + '.json')
-        .then(response => {
-          this.garbage = response.data
-        })
+  export default {
+    name: 'App',
+    components: {
+      Garbage,
+      Footer
+    },
+    mounted: function () {
+      const self = this
+      setInterval(() => {
+        self.nowDate = common.getCurrentDate()
+      }, 1000)
+    },
+    created: function () {
+      this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '07'
+      this.selectedRegion = this.regionNo
+      this.changeRegionDate()
+    },
+    data: function () {
+      return {
+        regionNo: '',
+        nowDate: '',
+        selectedRegion: '',
+        garbage: {}
+      }
+    },
+    methods: {
+      changeRegion: function (event) {
+        this.regionNo = event.target.value
+        this.changeRegionDate()
+      },
+      changeRegionDate: function () {
+        axios.get('/static/api/' + this.regionNo + '.json')
+          .then(response => {
+            this.garbage = response.data
+            localStorage['regionNo'] = this.regionNo
+          })
+      }
     }
   }
-}
 </script>
 
 <style>
@@ -171,6 +175,7 @@ export default {
     font-size: 20px;
     flex: 1;
   }
+
   /*
    アニメーション
    https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=ja
