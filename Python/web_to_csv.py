@@ -29,20 +29,12 @@ def getothertable(soup):
             othertable.append(table)
     return othertable
 
-# res = requests.get('http://www.city.hakusan.ishikawa.jp/shiminseikatsubu/kankyo/4r/gomi_nittei.html')
-# res.raise_for_status()
-# soup = bs4.BeautifulSoup(res.content, 'html5lib')
-html = ''
-with open('gomi.html', encoding='utf-8') as fin:
-    html = fin.read()
-soup = bs4.BeautifulSoup(html, 'lxml')
-
-regionlist = getregionlist(soup)
-burntablelist = getburntable(soup)
-othertablelist = getothertable(soup)
-
 def writeburn(gomilist, burn):
-    gomilist.append([burn.select('td')[1].text.replace('毎週　', '').replace('・', '')])
+    # 白峰（23番目）にバグがあるのでその対応
+    if burn.select('td')[1].text.find('燃やす') != -1:
+        gomilist.append([burn.select('td')[2].text.replace('毎週　', '').replace('・', '')])
+    else:
+        gomilist.append([burn.select('td')[1].text.replace('毎週　', '').replace('・', '')])
 
 def writeother(gomilist, other):
     for i, tr in enumerate(other.select('tr')):
@@ -68,13 +60,25 @@ def writeother(gomilist, other):
                 temp = bs4.BeautifulSoup(t, 'lxml')
                 row.append(temp.text)
 
+# res = requests.get('http://www.city.hakusan.ishikawa.jp/shiminseikatsubu/kankyo/4r/gomi_nittei.html')
+# res.raise_for_status()
+# soup = bs4.BeautifulSoup(res.content, 'html5lib')
+html = ''
+with open('gomi.html', encoding='utf-8') as fin:
+    html = fin.read()
+soup = bs4.BeautifulSoup(html, 'lxml')
+
+regionlist = getregionlist(soup)
+burntablelist = getburntable(soup)
+othertablelist = getothertable(soup)
+
 i = 0
 for region in regionlist:
     print('>>> ' + region)
     gomilist = []
 
     # 地域を先頭行に置く
-    gomilist.append(['{0:02d}'.format(i), region])
+    gomilist.append(['{0:02d}'.format(i + 1), region])
 
     # 燃える一般ごみ
     writeburn(gomilist, burntablelist[i])
@@ -88,5 +92,4 @@ for region in regionlist:
             fout.write(','.join(data))
             fout.write('\n')
     i += 1
-
 
