@@ -28,7 +28,7 @@ export default {
     }, 1000)
   },
   created: function () {
-    axios.get('/static/api/ichiki')
+    axios.get('/static/api/07')
       .then(response => {
         this.garbage = response.data
       })

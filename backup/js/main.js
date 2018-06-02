@@ -97,7 +97,7 @@ Vue.component('garbage-list', {
 const vm = new Vue({
   el: '#app',
   created: function () {
-    axios.get('http://localhost:8887/api/ichiki')
+    axios.get('http://localhost:8887/api/07')
       .then(response => {
         const data = response.data
         this.garbageList = data.garbageList
