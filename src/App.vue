@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1 class="header-title">白山市ごみ収集日程</h1>
-      <button id="butAdd" class="headerButton"></button>
+      <Menu></Menu>
     </header>
     <main>
       <div id="loader" class="loader" v-cloak>
@@ -60,12 +60,14 @@
   import axios from 'axios';
   import Garbage from './components/Garbage';
   import Footer from './components/Footer';
+  import Menu from './components/Menu';
 
   export default {
     name: 'App',
     components: {
       Garbage,
-      Footer
+      Footer,
+      Menu
     },
     mounted: function () {
       const self = this;
@@ -142,10 +144,6 @@
     display: none;
   }
 
-  [v-cloak] {
-    display: none;
-  }
-
   html,
   body {
     height: 100%;
@@ -203,10 +201,6 @@
     border: none;
     outline: none;
     cursor: pointer;
-  }
-
-  header #butAdd {
-    background: url(/static/image/menu.svg) center center no-repeat;
   }
 
   .header-title {

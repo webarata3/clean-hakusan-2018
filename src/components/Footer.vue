@@ -36,6 +36,7 @@ export default {
 
   ul {
     display: flex;
+    flex-direction: row;
   }
 
   li {

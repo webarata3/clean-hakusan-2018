@@ -63,8 +63,13 @@ export default {
 
 <style>
   .garbage-item {
+    border: 1px solid #444;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
     display: flex;
+    flex: 1;
     flex-direction: row;
+    margin: 5px;
+    z-index: -1;
   }
 
   .garbage-title {
@@ -115,7 +120,6 @@ export default {
     flex: 1;
     font-size: 40px;
     text-align: center;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -128,7 +132,6 @@ export default {
     text-align: right;
     position: absolute;
     right: 5px;
-
   }
 
   .today {

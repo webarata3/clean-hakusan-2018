@@ -55,3 +55,7 @@ table {
 }
 
 /********** reset css **********/
+
+[v-cloak] {
+  display: none;
+}

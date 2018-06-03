@@ -29,11 +29,4 @@ export default {
     flex: 1;
     flex-direction: column;
   }
-
-  .garbage-list > div {
-    border: 1px solid #444;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
-    flex: 1;
-    margin: 5px;
-  }
 </style>
