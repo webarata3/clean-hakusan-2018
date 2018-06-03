@@ -11,7 +11,7 @@
         </svg>
       </div>
       <div class="region" v-cloak>
-        <select v-model="selectedRegion" name="region" @change="changeRegion">
+        <select v-model="selectedRegionNo" name="region" @change="changeRegion">
           <optgroup label="松任地域">
             <option value="01">松任Ａ</option>
             <option value="02">松任Ｂ・旭</option>
@@ -70,28 +70,63 @@ export default {
     }, 1000);
   },
   created: function () {
-    this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '01';
-    this.selectedRegion = this.regionNo;
-    this.changeRegionDate();
+    this.readVersion();
   },
   data: function () {
     return {
+      version: '',
       regionNo: '',
       nowDate: '',
-      selectedRegion: '',
+      selectedRegionNo: '',
       garbage: {}
     };
   },
   methods: {
+    readVersion: async function () {
+      this.version = localStorage['version'] ? localStorage['version'] : '';
+
+      let readVersion = '';
+      await axios.get('/static/api/version.json').then(response => {
+        readVersion = response.data['version'];
+        localStorage['version'] = readVersion;
+      }).catch(() => {});
+
+      this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '01';
+      if (readVersion === '') {
+        if (this.version === '') {
+          // サーバからversionNoが読み込めず、さらにすでに読み込まれているものがない（どうしようもない）とき
+          alert('なにか問題がおきています。\n時間をおいて試してください');
+        } else {
+          // サーバからversionNoが読み込めなかった場合には、すでに読み込まれているものを使う
+          this.initRegion();
+        }
+      } else {
+        if (this.version === readVersion) {
+          // サーバのversionNoから変わっていない場合には再度取得はせず、すでに読み込まれているものを使う
+          this.initRegion();
+        } else {
+          // サーバからversionNoが読み込めて、読み込まれているものと違う場合（更新があった場合）
+          this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '01';
+          this.selectedRegionNo = this.regionNo;
+          this.changeRegionDate();
+        }
+      }
+    },
     changeRegion: function (event) {
-      this.regionNo = event.target.value;
-      this.changeRegionDate();
+      localStorage['regionNo'] = event.target.value;
+      localStorage['version'] = '';
+      this.readVersion();
     },
     changeRegionDate: function () {
       axios.get('/static/api/' + this.regionNo + '.json').then(response => {
         this.garbage = response.data;
         localStorage['regionNo'] = this.regionNo;
+        localStorage['garbage'] = JSON.stringify(this.garbage);
       });
+    },
+    initRegion: function () {
+      this.selectedRegionNo = this.regionNo;
+      this.garbage = JSON.parse(localStorage['garbage']);
     }
   }
 };
