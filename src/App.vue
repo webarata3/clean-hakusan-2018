@@ -47,7 +47,7 @@
             </optgroup>
           </select>
         </div>
-        <a href="http://www.city.hakusan.ishikawa.jp/shiminseikatsubu/kankyo/4r/gomi_chikunokensaku.html">地域が不明な方はこちらで確認したください</a>
+        <a href="http://www.city.hakusan.ishikawa.jp/shiminseikatsubu/kankyo/4r/gomi_chikunokensaku.html">地域が不明な方はこちらで確認してください</a>
       </div>
       <Garbage :now-date="nowDate" :garbage="garbage"></Garbage>
     </main>
