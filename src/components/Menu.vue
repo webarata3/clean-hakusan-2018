@@ -46,7 +46,7 @@ THE SOFTWARE.</pre>
         <div>
           <h2>axios</h2>
           <div class="link">
-            <a href="https://github.com/axios/axios">Vue.js</a>
+            <a href="https://github.com/axios/axios">axios</a>
           </div>
           <div class="license">
             <pre>Copyright (c) 2014-present Matt Zabriskie
@@ -73,7 +73,7 @@ THE SOFTWARE.</pre>
         <div>
           <h2>Moment.js</h2>
           <div class="link">
-            <a href="https://momentjs.com/">Vue.js</a>
+            <a href="https://momentjs.com/">Moment.js</a>
           </div>
           <div class="license">
             <pre>Copyright (c) JS Foundation and other contributors
