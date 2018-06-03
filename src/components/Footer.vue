@@ -17,9 +17,9 @@
 export default {
   name: 'Footer',
   data: function () {
-    return {}
+    return {}ß;
   }
-}
+};
 </script>
 
 <style>

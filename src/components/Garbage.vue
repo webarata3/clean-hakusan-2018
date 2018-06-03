@@ -3,8 +3,8 @@
 </template>
 
 <script>
-  import common from './common'
-  import GarbageList from './GarbageList'
+  import common from './common';
+  import GarbageList from './GarbageList';
 
   export default {
     name: 'Garbage',
@@ -14,7 +14,7 @@
     data: function () {
       return {
         region: '07'
-      }
+      };
     },
     props: {
       nowDate: String,
@@ -22,10 +22,10 @@
     },
     computed: {
       viewDate: function () {
-        return common.getViewDate(this.nowDate)
+        return common.getViewDate(this.nowDate);
       }
     }
-  }
+  };
 </script>
 
 <style>

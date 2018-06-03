@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GarbageItem from './GarbageItem'
+import GarbageItem from './GarbageItem';
 
 export default {
   name: 'GarbageList',
@@ -14,13 +14,13 @@ export default {
   },
   data: function () {
     return {
-    }
+    };
   },
   props: {
     nowDate: String,
     garbageList: Array
   }
-}
+};
 </script>
 
 <style>

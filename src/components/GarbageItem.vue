@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import moment from 'moment'
-import common from './common'
+import moment from 'moment';
+import common from './common';
 
 export default {
   name: 'GarbageItem',
@@ -23,42 +23,42 @@ export default {
   },
   computed: {
     nextDate: function () {
-      return this.getImmediateDate(this.garbage.garbageDateList)
+      return this.getImmediateDate(this.garbage.garbageDateList);
     },
     viewNextDate: function () {
-      return common.getViewGarbageDate(this.nextDate)
+      return common.getViewGarbageDate(this.nextDate);
     },
     untilDay: function () {
-      return this.getUntilDay(this.nextDate, this.nowDate)
+      return this.getUntilDay(this.nextDate, this.nowDate);
     },
     viewUntilDay: function () {
-      return this.getViewUntilDay(this.untilDay)
+      return this.getViewUntilDay(this.untilDay);
     },
     isToday: function () {
-      return this.untilDay === 0
+      return this.untilDay === 0;
     },
     isTomorrow: function () {
-      return this.untilDay === 1
+      return this.untilDay === 1;
     },
     isDayAfterTomorrow: function () {
-      return this.untilDay === 2
+      return this.untilDay === 2;
     }
   },
   methods: {
     getImmediateDate: function (dateList) {
       for (let date of dateList) {
-        if (date >= this.nowDate) return date
+        if (date >= this.nowDate) return date;
       }
-      return null
+      return null;
     },
     getUntilDay: function (nextDate, nowDate) {
-      return moment(nextDate, common.BASIC_DATE_FORMAT).diff(moment(nowDate, common.BASIC_DATE_FORMAT), 'days')
+      return moment(nextDate, common.BASIC_DATE_FORMAT).diff(moment(nowDate, common.BASIC_DATE_FORMAT), 'days');
     },
     getViewUntilDay: function (untilDay) {
-      return untilDay > 2 ? untilDay + '日後' : common.VIEW_UNTIL_DAY[untilDay]
+      return untilDay > 2 ? untilDay + '日後' : common.VIEW_UNTIL_DAY[untilDay];
     }
   }
-}
+};
 </script>
 
 <style>

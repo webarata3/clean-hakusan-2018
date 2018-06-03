@@ -52,10 +52,10 @@
 </template>
 
 <script>
-import common from './components/common'
-import axios from 'axios'
-import Garbage from './components/Garbage'
-import Footer from './components/Footer'
+import common from './components/common';
+import axios from 'axios';
+import Garbage from './components/Garbage';
+import Footer from './components/Footer';
 
 export default {
   name: 'App',
@@ -64,15 +64,15 @@ export default {
     Footer
   },
   mounted: function () {
-    const self = this
+    const self = this;
     setInterval(() => {
-      self.nowDate = common.getCurrentDate()
-    }, 1000)
+      self.nowDate = common.getCurrentDate();
+    }, 1000);
   },
   created: function () {
-    this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '01'
-    this.selectedRegion = this.regionNo
-    this.changeRegionDate()
+    this.regionNo = localStorage['regionNo'] ? localStorage['regionNo'] : '01';
+    this.selectedRegion = this.regionNo;
+    this.changeRegionDate();
   },
   data: function () {
     return {
@@ -80,21 +80,21 @@ export default {
       nowDate: '',
       selectedRegion: '',
       garbage: {}
-    }
+    };
   },
   methods: {
     changeRegion: function (event) {
-      this.regionNo = event.target.value
-      this.changeRegionDate()
+      this.regionNo = event.target.value;
+      this.changeRegionDate();
     },
     changeRegionDate: function () {
       axios.get('/static/api/' + this.regionNo + '.json').then(response => {
-        this.garbage = response.data
-        localStorage['regionNo'] = this.regionNo
-      })
+        this.garbage = response.data;
+        localStorage['regionNo'] = this.regionNo;
+      });
     }
   }
-}
+};
 </script>
 
 <style>
