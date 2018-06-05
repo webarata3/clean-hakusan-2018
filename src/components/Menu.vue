@@ -5,11 +5,19 @@
       <menu type="toolbar" v-cloak>
         <ul>
           <li><a href="#">設定</a></li>
-          <li><a href="#">使い方</a></li>
-          <li><a href="#">免責事項</a></li>
+          <li><a href="#">使い方<span class="fa fa-external-link" aria-hidden="true"></span></a></li>
+          <li><a href="#" @click.prevent="clickDisclaimerMenu">免責事項</a></li>
           <li><a href="#" @click.prevent="clickCreditMenu">クレジット</a></li>
         </ul>
       </menu>
+    </div>
+    <div class="disclaimer" v-if="disclaimer" @click="clickDisclaimer">
+      <div>
+        <h1>免責事項</h1>
+        <div class="text">
+当サイトの情報は、慎重に管理・作成しますが、すべての情報が正確・完全であることは保証しません。そのことをご承知の上、利用者の責任において情報を利用してください。当サイトを利用したことによるいかなる損失について、一切保証しません。
+        </div>
+      </div>
     </div>
     <div class="credit" v-if="credit" @click="clickCredit">
       <div>
@@ -111,6 +119,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     data: function () {
       return {
         modal: false,
+        disclaimer: false,
         credit: false
       };
     },
@@ -126,6 +135,12 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
       },
       clickCredit: function (event) {
         this.credit = false;
+      },
+      clickDisclaimerMenu: function (event) {
+        this.disclaimer = true;
+      },
+      clickDisclaimer: function (event) {
+        this.disclaimer = false;
       }
     }
   };
@@ -175,7 +190,11 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     padding: 5px;
   }
 
-  .credit {
+  .fa-external-link {
+    margin-left: 5px;
+  }
+
+  .disclaimer, .credit {
     background-color: rgba(0, 0, 0, 0.7);
     height: 100vh;
     left: 0;
@@ -186,22 +205,27 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     z-index: 1000;
   }
 
-  .credit > div {
+  .disclaimer > div, .credit > div {
     background-color: #fff;
     color: #000;
     margin: 20px;
     padding: 5px;
   }
 
-  .credit > div > div {
+  .disclaimer > div > div, .credit > div > div {
     margin-bottom: 20px;
   }
 
-  .credit h1 {
+  .disclaimer h1, .credit h1 {
     background-color: #888;
     color: #fff;
     margin-bottom: 5px;
     padding: 5px;
+  }
+
+  .disclaimer .text {
+    font-size: 14pt;
+    line-height: 1.4em;
   }
 
   .credit h2 {
