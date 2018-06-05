@@ -1,6 +1,6 @@
 {
-  "name": "clean-hakusan",
-  "short_name": "clean-hakusan",
+  "name": "クリーン白山 白山市ゴミ収集日程確認アプリ",
+  "short_name": "クリーン白山",
   "icons": [
     {
       "src": "/static/img/icons/android-chrome-192x192.png",
