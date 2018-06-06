@@ -56,6 +56,10 @@ table {
 
 /********** reset css **********/
 
+body {
+  box-sizing: border-box;
+}
+
 [v-cloak] {
   display: none;
 }

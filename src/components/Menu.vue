@@ -1,8 +1,11 @@
 <template>
   <div class="menu">
     <button class="headerButton" @click="clickMenu"></button>
-    <div class="modal" v-if="modal" @click="closeMenu">
-      <menu type="toolbar" v-cloak>
+    <transition name="menu-background">
+      <div class="modal" v-if="modal" @click="closeMenu"></div>
+    </transition>
+    <transition name="menu-main">
+      <menu type="toolbar" v-if="modal" v-cloak>
         <ul>
           <li><a href="#">設定</a></li>
           <li><a href="#">使い方<span class="fa fa-external-link" aria-hidden="true"></span></a></li>
@@ -10,12 +13,12 @@
           <li><a href="#" @click.prevent="clickCreditMenu">クレジット</a></li>
         </ul>
       </menu>
-    </div>
+    </transition>
     <div class="disclaimer" v-if="disclaimer" @click="clickDisclaimer">
       <div>
         <h1>免責事項</h1>
         <div class="text">
-当サイトの情報は、慎重に管理・作成しますが、すべての情報が正確・完全であることは保証しません。そのことをご承知の上、利用者の責任において情報を利用してください。当サイトを利用したことによるいかなる損失について、一切保証しません。
+          当サイトの情報は、慎重に管理・作成しますが、すべての情報が正確・完全であることは保証しません。そのことをご承知の上、利用者の責任において情報を利用してください。当サイトを利用したことによるいかなる損失について、一切保証しません。
         </div>
       </div>
     </div>
@@ -167,12 +170,14 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
 
   menu {
     background-color: #fff;
-    border: 1px solid #444;
-    border-radius: 5px;
+    box-sizing: border-box;
+    border-left: 1px solid #000;
+    height: 100vh;
     padding: 5px;
-    position: absolute;
-    right: 5px;
-    top: 5px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 150px;
     z-index: 1500;
   }
 
@@ -189,6 +194,22 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     text-decoration: none;
     padding: 5px;
   }
+
+  .menu-background-enter-active, .menu-background-leave-active {
+    transition: opacity 0.5s;
+  }
+
+  .menu-backgroud-enter, .menu-background-leave-to {
+    opacity: 0;
+  }
+
+  .menu-main-enter-active, .menu-main-leave-active {
+    transition: right 0.5s;
+  }
+  .menu-main-enter, .menu-main-leave-to {
+    right: -150px;
+  }
+
 
   .fa-external-link {
     margin-left: 5px;
