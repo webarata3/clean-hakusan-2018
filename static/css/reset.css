@@ -56,7 +56,7 @@ table {
 
 /********** reset css **********/
 
-body {
+* {
   box-sizing: border-box;
 }
 

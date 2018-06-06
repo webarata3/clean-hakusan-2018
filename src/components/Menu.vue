@@ -170,7 +170,6 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
 
   menu {
     background-color: #fff;
-    box-sizing: border-box;
     border-left: 1px solid #000;
     height: 100vh;
     padding: 5px;
