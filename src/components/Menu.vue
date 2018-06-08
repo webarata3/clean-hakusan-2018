@@ -195,7 +195,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
   }
 
   .menu-background-enter-active, .menu-background-leave-active {
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
   }
 
   .menu-backgroud-enter, .menu-background-leave-to {
@@ -203,7 +203,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
   }
 
   .menu-main-enter-active, .menu-main-leave-active {
-    transition: right 0.5s;
+    transition: right 0.3s;
   }
   .menu-main-enter, .menu-main-leave-to {
     right: -150px;

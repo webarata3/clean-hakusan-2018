@@ -15,13 +15,13 @@
           <label for="region">地域</label>
           <select v-model="selectedRegionNo" id="region" name="region" @change="changeRegion">
             <optgroup label="松任地域">
-              <option value="01">松任Ａ</option>
+              <option value="01" selected>松任Ａ</option>
               <option value="02">松任Ｂ・旭</option>
               <option value="03">松任Ｃ</option>
               <option value="04">石川・柏野</option>
               <option value="05">笠間・宮保・加賀野</option>
               <option value="06">出城・御手洗</option>
-              <option value="07" selected>一木</option>
+              <option value="07">一木</option>
               <option value="08">中奥・郷</option>
               <option value="09">千代野</option>
               <option value="10">林中・山島</option>
