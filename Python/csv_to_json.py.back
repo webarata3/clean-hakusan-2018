@@ -3,7 +3,6 @@ import os
 import json
 import datetime
 import calendar
-import glob
 
 def checkArg(args):
     if len(args) != 2:
@@ -19,10 +18,9 @@ args = sys.argv
 checkArg(args)
 year = int(args[1])
 
-filelist = glob.glob('*.csv')
-#filelist = os.listdir(path='.')
-#filelist = list(filter(lambda f : os.path.isfile(f), filelist))
-#filelist = list(filter(lambda f : f.endswith('.csv'), filelist))
+filelist = os.listdir(path='.')
+filelist = list(filter(lambda f : os.path.isfile(f), filelist))
+filelist = list(filter(lambda f : f.endswith('.csv'), filelist))
 
 def csvtojson(inputfilename):
     indexregion = 0
