@@ -1,45 +1,45 @@
 import requests, bs4
 
-def getregionlist(soup):
-    regionlist = []
-    notfound = True
+def get_region_list(soup):
+    region_list = []
+    not_found = True
     for strong in soup.find_all('strong'):
         for span in strong.select('span > span'):
             if not span.text.isdigit():
                 if span.text.find('松任地区のごみ収集日程') != -1:
-                    notfound = False
+                    not_found = False
                     continue
-                if notfound: continue
+                if not_found: continue
                 if span.text.find('収集日程') != -1:
                     continue
-                regionlist.append(span.text)
-    return regionlist
+                region_list.append(span.text)
+    return region_list
 
-def getburntable(soup):
-    burntable = []
+def get_burn_table(soup):
+    burn_table = []
     for table in soup.select('td[align=left] div table'):
         if table.text.find('燃やす一般ごみ') != -1:
-            burntable.append(table)
-    return burntable
+            burn_table.append(table)
+    return burn_table
 
-def getothertable(soup):
-    othertable = []
+def get_other_table(soup):
+    other_table = []
     for table in soup.select('td[align=left] div table'):
         if table.text.find('収集月') != -1:
-            othertable.append(table)
-    return othertable
+            other_table.append(table)
+    return other_table
 
-def writeburn(gomilist, burn):
+def write_burn(gomi_list, burn):
     # 白峰（23番目）にバグがあるのでその対応
     if burn.select('td')[1].text.find('燃やす') != -1:
-        gomilist.append([burn.select('td')[2].text.replace('毎週　', '').replace('・', '')])
+        gomi_list.append([burn.select('td')[2].text.replace('毎週　', '').replace('・', '')])
     else:
-        gomilist.append([burn.select('td')[1].text.replace('毎週　', '').replace('・', '')])
+        gomi_list.append([burn.select('td')[1].text.replace('毎週　', '').replace('・', '')])
 
-def writeother(gomilist, other):
+def write_other(gomi_list, other):
     for i, tr in enumerate(other.select('tr')):
         row = []
-        gomilist.append(row)
+        gomi_list.append(row)
         for j, td in enumerate(tr.select('td')):
             if i == 0 and j == 0:
                 row.append('')
@@ -68,27 +68,27 @@ with open('gomi.html', encoding='utf-8') as fin:
     html = fin.read()
 soup = bs4.BeautifulSoup(html, 'lxml')
 
-regionlist = getregionlist(soup)
-burntablelist = getburntable(soup)
-othertablelist = getothertable(soup)
+region_list = get_region_list(soup)
+burn_table_list = get_burn_table(soup)
+other_table_list = get_other_table(soup)
 
 i = 0
-for region in regionlist:
+for region in region_list:
     print('>>> ' + region)
-    gomilist = []
+    gomi_list = []
 
     # 地域を先頭行に置く
-    gomilist.append(['{0:02d}'.format(i + 1), region])
+    gomi_list.append(['{0:02d}'.format(i + 1), region])
 
     # 燃える一般ごみ
-    writeburn(gomilist, burntablelist[i])
+    write_burn(gomi_list, burn_table_list[i])
 
     # その他ゴミ
-    writeother(gomilist, othertablelist[i])
+    write_other(gomi_list, other_table_list[i])
 
     # 書き出す
     with open('{0:02d}'.format(i + 1) + '.csv', 'wt') as fout:
-        for data in gomilist:
+        for data in gomi_list:
             fout.write(','.join(data))
             fout.write('\n')
     i += 1
