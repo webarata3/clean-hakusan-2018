@@ -209,6 +209,18 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     right: -150px;
   }
 
+  .headerButton {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    text-indent: -30000px;
+    overflow: hidden;
+    opacity: 0.54;
+    transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
 
   .fa-external-link {
     margin-left: 5px;

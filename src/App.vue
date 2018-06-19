@@ -135,12 +135,7 @@
 </script>
 
 <style>
-  #loader:not([v-cloak]) {
-    display: none;
-  }
-
-  html,
-  body {
+  html, body {
     height: 100%;
     width: 100%;
     font-family: "Helvetica", "Verdana", sans-serif;
@@ -183,19 +178,6 @@
     box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12),
     0 4px 2px -2px rgba(0, 0, 0, 0.2);
     transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  }
-
-  header .headerButton {
-    width: 24px;
-    height: 24px;
-    margin-right: 16px;
-    text-indent: -30000px;
-    overflow: hidden;
-    opacity: 0.54;
-    transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-    border: none;
-    outline: none;
-    cursor: pointer;
   }
 
   .header-title {
