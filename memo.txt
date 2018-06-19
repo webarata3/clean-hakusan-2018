@@ -3,3 +3,8 @@ npm run dev
 
 ビルド
 npm run build
+
+Python
+
+pipenv install
+pipenv run python pythonファイル
