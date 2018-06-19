@@ -1,0 +1,5 @@
+開発用
+npm run dev
+
+ビルド
+npm run build
