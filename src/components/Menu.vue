@@ -149,7 +149,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
   };
 </script>
 
-<style>
+<style scoped>
   .menu {
     position: relative;
   }

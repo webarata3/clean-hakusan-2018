@@ -27,26 +27,3 @@
     }
   };
 </script>
-
-<style>
-  main {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .region {
-    align-items: center;
-    font-size: 14pt;
-    padding: 10px 20px;
-  }
-
-  select {
-    appearance: none;
-    background: url(/static/image/arrow.png) 99% 50% no-repeat, linear-gradient(to bottom, #fff 0%, #efebe1 100%);
-    background-size: 20px, 100%;
-    border: 1px solid #999;
-    padding: 10px;
-    width: 100%;
-  }
-</style>

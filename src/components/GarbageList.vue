@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .garbage-list {
     display: flex;
     flex: 1;

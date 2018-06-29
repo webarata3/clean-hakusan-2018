@@ -61,7 +61,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   .garbage-item {
     border: 1px solid #444;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
