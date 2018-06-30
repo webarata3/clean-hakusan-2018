@@ -7,7 +7,6 @@
     <transition name="menu-main">
       <menu type="toolbar" v-if="modal" v-cloak>
         <ul>
-          <li><a href="#">設定</a></li>
           <li><a href="#">使い方<span class="fa fa-external-link" aria-hidden="true"></span></a></li>
           <li><a href="#" @click.prevent="clickDisclaimerMenu">免責事項</a></li>
           <li><a href="#" @click.prevent="clickCreditMenu">クレジット</a></li>
