@@ -13,7 +13,7 @@
     },
     data: function () {
       return {
-        region: '07'
+        region: ''
       };
     },
     props: {
