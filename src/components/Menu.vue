@@ -7,7 +7,7 @@
     <transition name="menu-main">
       <menu type="toolbar" v-if="modal" v-cloak>
         <ul>
-          <li><a href="#">使い方<span class="fa fa-external-link" aria-hidden="true"></span></a></li>
+          <li><a href="#">使い方（作成中）<span class="fa fa-external-link" aria-hidden="true"></span></a></li>
           <li><a href="#" @click.prevent="clickDisclaimerMenu">免責事項</a></li>
           <li><a href="#" @click.prevent="clickCreditMenu">クレジット</a></li>
         </ul>
@@ -149,10 +149,6 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
 </script>
 
 <style scoped>
-  .menu {
-    position: relative;
-  }
-
   button {
     background: url(/static/image/menu.svg) center center no-repeat;
   }
@@ -165,6 +161,10 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     top: 0;
     width: 100%;
     z-index: 1000;
+  }
+
+  .menu {
+    position: relative;
   }
 
   menu {
@@ -189,6 +189,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
 
   menu a, menu a:hover, menu a:active, menu a:visited {
     display: block;
+    color: #00f;
     text-decoration: none;
     padding: 5px;
   }
