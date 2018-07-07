@@ -231,6 +231,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
     height: 100vh;
     left: 0;
     overflow: scroll;
+    padding: 20px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -240,7 +241,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
   .disclaimer > div, .credit > div {
     background-color: #fff;
     color: #000;
-    margin: 20px;
+    margin: 10px 0;
     padding: 5px;
   }
 
