@@ -27,7 +27,8 @@
           if (file.match(/\.(js|css)$/)) { %>
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/reset.css">
+   <link rel="stylesheet" href="/static/css/reset.css">
+   <link rel="stylesheet" href="/static/css/common.css">
   </head>
   <body>
     <noscript>

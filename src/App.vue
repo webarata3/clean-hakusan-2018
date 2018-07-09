@@ -99,15 +99,6 @@
 </script>
 
 <style scoped>
-  html, body {
-    height: 100%;
-    width: 100%;
-    font-family: "Helvetica", "Verdana", sans-serif;
-    color: #444;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   html {
     overflow: hidden;
   }
