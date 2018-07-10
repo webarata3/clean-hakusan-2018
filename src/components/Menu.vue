@@ -189,7 +189,7 @@ OTHER DEALINGS IN THE SOFTWARE.</pre>
 
   menu a, menu a:hover, menu a:active, menu a:visited {
     display: block;
-    color: #00f;
+    color: #000;
     text-decoration: none;
     padding: 5px;
   }
