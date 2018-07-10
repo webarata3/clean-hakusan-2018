@@ -3,7 +3,8 @@
 html, body {
   height: 100%;
   width: 100%;
-  font-family: "Helvetica", "Verdana", sans-serif;
+  font-family: 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro',
+               'Meiryo', 'メイリオ', 'MS PGothic', 'MS Pゴシック', 'Webフォント', sans-serif;
   color: #444;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
