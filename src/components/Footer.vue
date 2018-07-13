@@ -3,11 +3,11 @@
     <div class="copyright">©2018 Shinichi ARATA（webarata3）</div>
     <div class="sns">
       <ul>
-        <li><a href="https://twitter.com/webarata3"><span class="fa fa-twitter"></span></a></li>
-        <li><a href="https://facebook.com/arata.shinichi"><span class="fa fa-facebook"></span></a></li>
-        <li><a href="https://github.com/webarata3"><span class="fa fa-github"></span></a></li>
+        <li><a href="https://twitter.com/webarata3"><span class="fab fa-twitter"></span></a></li>
+        <li><a href="https://facebook.com/arata.shinichi"><span class="fab fa-facebook"></span></a></li>
+        <li><a href="https://github.com/webarata3"><span class="fab fa-github"></span></a></li>
         <li><a href="https://ja.stackoverflow.com/users/2214/webarata3?tab=profile"><span
-          class="fa fa-stack-overflow"></span></a></li>
+          class="fab fa-stack-overflow"></span></a></li>
       </ul>
     </div>
   </footer>
