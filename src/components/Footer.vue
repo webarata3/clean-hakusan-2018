@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="copyright">©2018 Shinichi ARATA（webarata3）</div>
+    <div class="copyright">©2018 <a href="https://webarata3.link">Shinichi ARATA（webarata3）</a></div>
     <div class="sns">
       <ul>
         <li><a href="https://twitter.com/webarata3"><span class="fab fa-twitter"></span></a></li>
@@ -45,5 +45,6 @@ export default {
 
   a, a:hover, a:active, a:visited {
     color: black;
+    text-decoration: none;
   }
 </style>
