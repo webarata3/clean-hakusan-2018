@@ -30,6 +30,7 @@
     },
     mounted: function () {
       const self = this;
+      self.nowDate = common.getCurrentDate();
       setInterval(() => {
         self.nowDate = common.getCurrentDate();
       }, 1000);
