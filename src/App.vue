@@ -5,7 +5,7 @@
       <Menu></Menu>
     </header>
     <main>
-      <div class="alert">白山市公式のアプリではありません。</div>
+      <div class="alert">※ 白山市公式のアプリではありません。</div>
       <Region @change-region="changeRegion" :regionNo="regionNo"></Region>
       <Garbage :now-date="nowDate" :garbage="garbage"></Garbage>
     </main>
