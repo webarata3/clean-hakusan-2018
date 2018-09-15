@@ -5,6 +5,7 @@
       <Menu></Menu>
     </header>
     <main>
+      <div class="alert">白山市公式のアプリではありません。</div>
       <Region @change-region="changeRegion" :regionNo="regionNo"></Region>
       <Garbage :now-date="nowDate" :garbage="garbage"></Garbage>
     </main>
@@ -148,5 +149,11 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+  }
+
+  .alert {
+    margin: 10px 5px 0 5px;
+    color: #f00;
+    font-size: 14px;
   }
 </style>

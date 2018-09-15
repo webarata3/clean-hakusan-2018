@@ -9,5 +9,11 @@ Python
 pipenv install
 pipenv run python pythonファイル
 
-
 $ firebase deploy --project clean-hakusan
+
+
+
+
+プロジェクトの初期設定
+
+$ npm install
