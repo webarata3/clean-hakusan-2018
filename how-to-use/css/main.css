@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+:root {
+  --brand-color: #1e88e5;
+  --page-width: 1200px;
+  --side-margin: 50px;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'ヒラギノ丸ゴ Pro W4', 'Hiragino Maru Gothic Pro',
+  'UD デジタル 教科書体 N-R', Meiryo, 'メイリオ',
+  'Lucida Grande', Verdana, Osaka, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+
+  background-color: #fff;
+  color: var(--brand-color);
+  display: flex;
+  font-size: 16px;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ヘッダー */
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px var(--side-margin);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 1.6rem;
+}
+
+img {
+  height: 0.98em;
+  margin-right: 5px;
+}
+
+header a, header a:link, header a:visited, header a:hover, header a:active {
+  color: var(--brand-color);
+  text-decoration: none;
+}
+
+/* メイン */
+
+main {
+  flex-grow: 1;
+}
+
+.title {
+  background-color: var(--brand-color);
+}
+
+.title > div {
+  display: flex;
+  align-items: center;
+  max-width: var(--page-width);
+  margin: 0 auto;
+  width: 100%;
+  height: 500px;
+}
+
+.title img {
+  border: 1px solid #333;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+  height: 400px;
+}
+
+.title-message {
+  color: #fff;
+  font-size: 25px;
+  line-height: 2em;
+  margin-left: 40px;
+}
+
+.title-message b {
+  font-size: 33px;
+  margin: 0 10px;
+}
+
+section {
+  max-width: var(--page-width);
+  margin: 120px auto;
+}
+
+.install-title {
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+.install-title > span {
+  color: var(--brand-color);
+  font-size: 20px;
+  padding: 0 80px;
+  border-color: var(--brand-color);
+  border-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 10px;
+}
+
+.how-to-use > section > div:last-child {
+  display: flex;
+  justify-content: space-around;
+}
+
+.panel {
+  text-align: center;
+}
+
+.use-image {
+  border: 1px solid #333;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+  height: 400px;
+}
+
+.order {
+  display: inline-block;
+  color: var(--brand-color);
+  font-size: 20px;
+  margin: 25px 0;
+  vertical-align: top;
+}
+
+.description {
+  display: inline-block;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.5em;
+  padding: 10px 10px;
+  margin: 35px 0 0 0;
+  border-color: var(--brand-color);
+  border-style: solid;
+  border-width: 1px 0;
+}
+
+.description a, .description a:link, .description a:visited, .description a:hover, .description a:active {
+  color: #333;
+  text-decoration: none;
+}
+
+/* フッター */
+
+footer {
+  background-color: #454545;
+  color: #c0c0c0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+footer > div {
+  display: flex;
+  justify-content: space-between;
+  max-width: var(--page-width);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.copyright {
+  flex: 1 1 auto;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+footer li {
+  display: inline-block;
+  width: 1.6em;
+}
+
+footer a {
+  color: #c0c0c0;
+  text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+  color: #fff;
+}
+
+/* スマホ */
+@media screen and (max-width: 640px) {
+}
