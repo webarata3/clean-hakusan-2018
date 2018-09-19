@@ -3,7 +3,6 @@
 :root {
   --brand-color: #1e88e5;
   --page-width: 1200px;
-  --side-margin: 50px;
 }
 
 body {
@@ -26,17 +25,25 @@ body {
 
 header {
   display: flex;
+  padding: 10px 0;
+  justify-content: center;
+}
+
+header > div {
+  display: flex;
   align-items: center;
-  padding: 10px var(--side-margin);
+  max-width: var(--page-width);
+  width: 100%;
 }
 
 .logo {
-  align-items: center;
+  display: flex;
   flex-grow: 1;
   font-size: 1.6rem;
 }
 
 .logo img {
+  align-items: end;
   height: 0.98em;
   margin-right: 5px;
 }
@@ -112,6 +119,10 @@ section {
   text-align: center;
 }
 
+.panel > div {
+  white-space: nowrap;
+}
+
 .use-image {
   border: 1px solid #333;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
@@ -150,7 +161,6 @@ footer {
   color: #c0c0c0;
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
 footer > div {
@@ -185,8 +195,15 @@ footer a:hover, footer a:active {
   color: #fff;
 }
 
+@media screen and (max-width: 1200px) {
+  .use-image {
+    width: 60%;
+    height: auto;
+  }
+}
+
 /* スマホ */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 640px) {
   header {
     display: block;
     text-align: center;
@@ -228,6 +245,11 @@ footer a:hover, footer a:active {
 
   .use-panel {
     display: block;
+  }
+
+  .use-image {
+    width: auto;
+    height: 400px;
   }
 
   .panel {
